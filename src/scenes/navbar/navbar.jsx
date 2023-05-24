@@ -13,29 +13,31 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import CloseIcon from "@mui/icons-material/Close";
+import FlexCenter from "./../../components/flexCenter";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
     drawer: {
         width: "100%",
         height: "100%",
-        backgroundColor: "linear-gradient (45deg, #fe6b8b 30%, #ff8e53 90%)",
-        background: "linear-gradient (45deg, #fe6b8b 30%, #ff8e53 90%)",
     },
     drawerPaper: {
         width: "100%",
         height: "100%",
-        backgroundColor: "linear-gradient (45deg, #fe6b8b 30%, #ff8e53 90%)",
-        background: "linear-gradient (45deg, #fe6b8b 30%, #ff8e53 90%)",
-
-        // borderRight:'2px solid white'
     },
 });
 
 const Navbar = () => {
     const [isMenuToggle, setIsMenuToggle] = useState(false);
+    const navigate = useNavigate();
+
     const theme = useTheme();
+    const black = theme.palette.primary.black;
+    const white = theme.palette.primary.white;
+    const grey = theme.palette.primary.grey;
 
     const classes = useStyles();
+    console.log(isMenuToggle);
 
     return (
         <Box>
@@ -43,14 +45,14 @@ const Navbar = () => {
                 <CloseIcon
                     sx={{
                         fontSize: 50,
-                        color: "white",
+                        color: white,
                         position: "absolute",
                         top: "5%",
                         left: "5%",
                         zIndex: "100000",
                         "&:hover": {
                             cursor: "pointer",
-                            color: "grey",
+                            color: grey,
                             transition: "all .1s ease-in-out",
                         },
                     }}
@@ -62,14 +64,14 @@ const Navbar = () => {
                 <MenuIcon
                     sx={{
                         fontSize: 50,
-                        color: "white",
+                        color: white,
                         position: "absolute",
                         top: "5%",
                         left: "5%",
                         zIndex: "100000",
                         "&:hover": {
                             cursor: "pointer",
-                            color: "grey",
+                            color: grey,
                             transition: "all .1s ease-in-out",
                         },
                     }}
@@ -90,47 +92,44 @@ const Navbar = () => {
                 className={classes.drawer}
                 variant="temporary"
                 anchor="left"
-               
-                
             >
-                <Box
+                <FlexCenter
                     sx={{
-                        display: "flex",
                         height: "100%",
 
-                        // backgroundColor: "linear-gradient (45deg, #fe6b8b 30%, #ff8e53 90%)",
-                        // background:"linear-gradient (45deg, #fe6b8b 30%, #ff8e53 90%)",
-                        background: "black",
-                        alignItems: "center",
-                        justifyContent: "center",
                         flexDirection: "column",
+                        backgroundColor: black,
                     }}
                 >
-                    {/* <ul>
-                        <li>
-                            <a href={`/main`}>mainPage</a>
-                        </li>
-                        <li>
-                            <a href={`/nature`}>nature</a>
-                        </li>
-                    </ul> */}
-                    <List sx={{ display: "flex", flexDirection: "column", justifyContent:'center', alignItems:'center', textAlign:'center'}}>
+                    <List sx={{ flexDirection: "column" }}>
                         <ListItem>
-                            <ListItemButton sx={{textAlign:'center'}} component="a" href={`/main`}>
-                                <Typography  variant="h1" color="white">
+                            <ListItemButton
+                                sx={{
+                                    justifyContent: "center",
+                                   
+                                }}
+                                onClick={() => navigate("/main")}
+                            >
+                                <Typography variant="h1" color="white">
                                     Main Page
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
-                        <ListItem >
-                            <ListItemButton component="a" href={`/nature`}>
+                        <ListItem>
+                            <ListItemButton
+                                sx={{
+                                    justifyContent: "center",
+                                   
+                                }}
+                                onClick={() => navigate("/nature")}
+                            >
                                 <Typography variant="h1" color="white">
                                     Nature
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
                     </List>
-                </Box>
+                </FlexCenter>
             </Drawer>
         </Box>
     );
