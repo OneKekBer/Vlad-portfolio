@@ -37,7 +37,6 @@ const Navbar = () => {
     const grey = theme.palette.primary.grey;
 
     const classes = useStyles();
-    console.log(isMenuToggle);
 
     return (
         <Box>

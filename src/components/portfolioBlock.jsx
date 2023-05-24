@@ -42,7 +42,7 @@ export const PortfolioBlock = ({image, text, navigateUrl}) => {
             }}
         >
             
-            <Typography variant="h1" color="white">
+            <Typography variant="h2" color="white">
                 {text}
             </Typography>
         </FlexCenter>

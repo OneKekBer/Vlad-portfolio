@@ -1,4 +1,4 @@
-import { Box, useTheme, Typography, IconButton } from "@mui/material";
+import { Box, useTheme, Typography, IconButton, useMediaQuery } from "@mui/material";
 import React from "react";
 
 import FlexCenter from "./../../components/flexCenter";
@@ -8,6 +8,11 @@ import FlexAround from "../../components/flexAround";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EmailIcon from "@mui/icons-material/Email";
+import PaletteIcon from '@mui/icons-material/Palette';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+
 import FlexComponent from "./../../components/flexComponent";
 import PortfolioBlock from "../../components/portfolioBlock";
 
@@ -16,12 +21,15 @@ import Arch1_Img from "../../assets/img/arch1.jpg";
 import Nat2_Img from "../../assets/img/nat2.jpg";
 import Hero_Img from "../../assets/img/DSC_3774.jpg";
 
-
 export const Hero = () => {
     const theme = useTheme();
     const black = theme.palette.primary.black;
     const white = theme.palette.primary.white;
     const grey = theme.palette.primary.grey;
+
+    
+
+
     return (
         <FlexCenter
             sx={{
@@ -57,7 +65,7 @@ export const About = () => {
                     lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
                     lorem ipsum
                 </Typography>
-                <FlexAround justifyContent="space-around" flexDirection="">
+                <FlexAround justifyContent="space-around" >
                     {/* <IconButton aria-label="social" onClick={h}>
                       
                     </IconButton> */}
@@ -82,6 +90,8 @@ const MainPage = () => {
     const white = theme.palette.primary.white;
     const grey = theme.palette.primary.grey;
 
+    const isNonMobileScreen = useMediaQuery("(min-width:700px)")
+
     return (
         <Box backgroundColor={black} sx={{}}>
             <Navbar />
@@ -103,28 +113,41 @@ const MainPage = () => {
 
             {/*about*/}
 
-            <FlexCenter sx={{ height: "100vh" }} padding='0 20 0 20'>
-                <FlexAround width='100%' flexDirection="column" justifyContent='space-around' gap={10}>
-                    <Typography align="center" variant="h1" >
-                        Hello, Im Vlad<br/> and Im profesional<br/> photographer
+            <FlexCenter sx={{ height: "100vh" }} padding="0 20 0 20">
+                <FlexAround
+                    width="100%"
+                    flexDirection="column"
+                    justifyContent="space-around"
+                    gap={10}
+                >
+                    <Typography align="center" variant="h1">
+                        Hello, Im Vlad
+                        <br /> and Im profesional
+                        <br /> photographer
                     </Typography>
-                    <Typography align="center">
+                    <Typography align="center" variant='text'>
                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        ipsum lorem<br/> ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem<br/>
-                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br/>
+                        ipsum lorem
+                        <br /> ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+                        <br />
+                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                        <br />
                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
                         ipsum lorem ipsum lorem ipsum lorem ipsum
                     </Typography>
-                    <FlexComponent justifyContent="center" gap={5}>
-                        <IconButton color={white}  href="" aria-label="social">
-                            <InstagramIcon sx={{fontSize:'70px'}} />
+                    <FlexComponent justifyContent="center" flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={5}>
+                        <IconButton color={white} href="" aria-label="social">
+                            <InstagramIcon sx={{ fontSize: "70px" }} />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <TelegramIcon sx={{fontSize:'70px'}}/>
+                            <TelegramIcon sx={{ fontSize: "70px" }} />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <EmailIcon sx={{fontSize:'70px'}}/>
+                            <EmailIcon sx={{ fontSize: "70px" }} />
+                        </IconButton>
+                        <IconButton color={white} href="" aria-label="social">
+                            <MusicNoteIcon sx={{ fontSize: "70px" }} />
                         </IconButton>
                     </FlexComponent>
                 </FlexAround>
@@ -138,27 +161,61 @@ const MainPage = () => {
                     image={Nature_Img}
                     navigateUrl="/nature"
                 />
-                 <PortfolioBlock
+                <PortfolioBlock
                     text="ARCHITECTURE"
                     image={Arch1_Img}
                     navigateUrl="/nature"
                 />
-                 <PortfolioBlock
-                    sx={{backgroundPosition: "bottom"}}
+                <PortfolioBlock
+                    sx={{ backgroundPosition: "bottom" }}
                     text="AMFITHEATER"
                     image={Nat2_Img}
                     navigateUrl="/nature"
                 />
-                 <PortfolioBlock
+                <PortfolioBlock
                     text="NATURE"
                     image={Nature_Img}
                     navigateUrl="/nature"
                 />
             </FlexComponent>
 
-
             {/*WhyMe*/}
+            <FlexCenter sx={{ height: "100vh" }} padding="0 20 0 20">
+                <FlexAround
+                    width="100%"
+                    flexDirection="column"
+                    justifyContent="space-around"
+                    gap={20}
+                >
+                    <Typography align="center" variant="h1">
+                        Почему вы должны<br/> выбрать меня?
+                    </Typography>
+                    <FlexAround flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={5}>
+                        <FlexCenter flexDirection='column'>
+                            <PaletteIcon sx={{ fontSize: "70px" }}/>
+                            <Typography align='center' variant="h3" >
+                                творческий подход
+                            </Typography>
+                        </FlexCenter>
 
+                        <FlexCenter flexDirection='column'>
+                            <BorderColorIcon sx={{ fontSize: "70px" }}/>
+                            <Typography align='center' variant="h3" >
+                                владение <br/>редакторами фото
+                            </Typography>
+                        </FlexCenter>
+
+                        <FlexCenter flexDirection='column'>
+                            <TipsAndUpdatesIcon sx={{ fontSize: "70px" }}/>
+                            <Typography align='center' variant="h3" >
+                            большой опыт
+                            </Typography>
+                        </FlexCenter>
+
+
+                    </FlexAround>
+                </FlexAround>
+            </FlexCenter>
         </Box>
     );
 };

@@ -10,31 +10,54 @@ export const themeSettings = (mode) => {
                           black: "#0C0C0C",
                           grey: "#8D8D8D",
                       },
-                      background: {
-                        
-                      }
+                      background: {},
                   }
                 : {}),
         },
-        typography:{
-            fontSize:24,
-            fontWeight:'bold',
-            color:'white',
-            h1:{
-                fontSize:'6rem',
-                fontWeight:900,
+        typography: {
+            fontSize: 16,
+            
+            fontWeight: "bold",
+            color: "white",
+            h1: {
+                fontSize: "6rem",
+                fontWeight: 900,
+                "@media (max-width:992px)": {
+                    fontSize: "5rem",
+                },
+                "@media (max-width:600px)": {
+                    fontSize: "3rem",
+                },
             },
-            h2:{
-                fontSize:80,
-                fontWeight:'bold',
+            h2: {
+                fontSize: '4rem',
+                fontWeight: 900,
+                "@media (max-width:992px)": {
+                    fontSize: "3rem",
+                },
+                "@media (max-width:600px)": {
+                    fontSize: "2.5rem",
+                },
             },
-            h3:{
-                fontSize:40,
-                fontWeight:'bold',
+            h3: {
+                fontSize: '2.5rem',
+                fontWeight: 900,
+                "@media (max-width:992px)": {
+                    fontSize: "2rem",
+                },
+                "@media (max-width:600px)": {
+                    fontSize: "1.5rem",
+                },
             },
-        }
-
-        
-
+            text:{
+                fontSize:'1.5rem',
+                "@media (max-width:992px)": {
+                    fontSize: "1rem",
+                },
+                "@media (max-width:600px)": {
+                    fontSize: "1rem",
+                },
+            }
+        },
     };
 };
