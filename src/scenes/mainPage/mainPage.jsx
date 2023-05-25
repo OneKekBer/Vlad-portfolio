@@ -20,6 +20,7 @@ import Nature_Img from "../../assets/img/natue.jpg";
 import Arch1_Img from "../../assets/img/arch1.jpg";
 import Nat2_Img from "../../assets/img/nat2.jpg";
 import Hero_Img from "../../assets/img/DSC_3774.jpg";
+import Footer from "../footer/footer";
 
 export const Hero = () => {
     const theme = useTheme();
@@ -88,7 +89,7 @@ const MainPage = () => {
     const theme = useTheme();
     const black = theme.palette.primary.black;
     const white = theme.palette.primary.white;
-    const grey = theme.palette.primary.grey;
+
 
     const isNonMobileScreen = useMediaQuery("(min-width:700px)")
 
@@ -106,24 +107,24 @@ const MainPage = () => {
                     backgroundRepeat: "no-repeat",
                 }}
             >
-                <Typography variant="h1" color="wh  ite">
-                    Hello there
+                <Typography variant="h1" sx={{opacity:0.7}} color="white">
+                    ЙОУ СОБАКИ
                 </Typography>
             </FlexCenter>
 
             {/*about*/}
 
-            <FlexCenter sx={{ height: "100vh" }} padding="0 20 0 20">
+            <FlexCenter sx={{ height: isNonMobileScreen ? "110vh" : '' }}>
                 <FlexAround
                     width="100%"
                     flexDirection="column"
                     justifyContent="space-around"
                     gap={10}
                 >
-                    <Typography align="center" variant="h1">
-                        Hello, Im Vlad
-                        <br /> and Im profesional
-                        <br /> photographer
+                    <Typography align="center" mt={10} variant="h1">
+                        Привет, я Влад
+                        <br /> и я проффесиональный
+                        <br /> фотограф
                     </Typography>
                     <Typography align="center" variant='text'>
                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
@@ -136,18 +137,18 @@ const MainPage = () => {
                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
                         ipsum lorem ipsum lorem ipsum lorem ipsum
                     </Typography>
-                    <FlexComponent justifyContent="center" flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={5}>
+                    <FlexComponent justifyContent="center" flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={1}>
                         <IconButton color={white} href="" aria-label="social">
-                            <InstagramIcon sx={{ fontSize: "70px" }} />
+                            <InstagramIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }} />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <TelegramIcon sx={{ fontSize: "70px" }} />
+                            <TelegramIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }}  />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <EmailIcon sx={{ fontSize: "70px" }} />
+                            <EmailIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }}  />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <MusicNoteIcon sx={{ fontSize: "70px" }} />
+                            <MusicNoteIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }} />
                         </IconButton>
                     </FlexComponent>
                 </FlexAround>
@@ -192,21 +193,21 @@ const MainPage = () => {
                     </Typography>
                     <FlexAround flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={5}>
                         <FlexCenter flexDirection='column'>
-                            <PaletteIcon sx={{ fontSize: "70px" }}/>
+                            <PaletteIcon sx={{ fontSize: isNonMobileScreen ? "90px" : '50px', }}/>
                             <Typography align='center' variant="h3" >
                                 творческий подход
                             </Typography>
                         </FlexCenter>
 
                         <FlexCenter flexDirection='column'>
-                            <BorderColorIcon sx={{ fontSize: "70px" }}/>
+                            <BorderColorIcon sx={{ fontSize: isNonMobileScreen ? "90px" : '50px', }}/>
                             <Typography align='center' variant="h3" >
                                 владение <br/>редакторами фото
                             </Typography>
                         </FlexCenter>
 
                         <FlexCenter flexDirection='column'>
-                            <TipsAndUpdatesIcon sx={{ fontSize: "70px" }}/>
+                            <TipsAndUpdatesIcon sx={{ fontSize: isNonMobileScreen ? "90px" : '50px', }}/>
                             <Typography align='center' variant="h3" >
                             большой опыт
                             </Typography>
@@ -216,6 +217,7 @@ const MainPage = () => {
                     </FlexAround>
                 </FlexAround>
             </FlexCenter>
+            <Footer/>
         </Box>
     );
 };

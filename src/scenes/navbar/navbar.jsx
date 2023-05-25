@@ -127,6 +127,19 @@ const Navbar = () => {
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
+                        <ListItem>
+                            <ListItemButton
+                                sx={{
+                                    justifyContent: "center",
+                                   
+                                }}
+                                onClick={() => navigate("/nature")}
+                            >
+                                <Typography variant="h1" color="white">
+                                    Architecture
+                                </Typography>
+                            </ListItemButton>
+                        </ListItem>
                     </List>
                 </FlexCenter>
             </Drawer>

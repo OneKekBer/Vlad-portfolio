@@ -28,6 +28,9 @@ export const themeSettings = (mode) => {
                 "@media (max-width:600px)": {
                     fontSize: "3rem",
                 },
+                "@media (max-width:400px)": {
+                    fontSize: "2rem",
+                },
             },
             h2: {
                 fontSize: '4rem',
@@ -56,6 +59,9 @@ export const themeSettings = (mode) => {
                 },
                 "@media (max-width:600px)": {
                     fontSize: "1rem",
+                },
+                "@media (max-width:400px)": {
+                    fontSize: "0.75rem",
                 },
             }
         },
