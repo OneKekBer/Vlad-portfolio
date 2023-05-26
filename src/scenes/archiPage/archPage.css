@@ -1,0 +1,13 @@
+.discIsVisible{
+    
+    
+    opacity: 1;
+
+    transition: transform, opacity 1s ease;
+}
+.discIsNotVisible{
+    
+    
+    opacity: 0;
+
+}

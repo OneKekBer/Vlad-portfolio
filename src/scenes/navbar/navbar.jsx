@@ -44,14 +44,14 @@ const Navbar = () => {
                 <CloseIcon
                     sx={{
                         fontSize: 50,
-                        color: white,
-                        position: "absolute",
+                        color: "white",
+                        position: "fixed", // Set position to "fixed"
                         top: "5%",
                         left: "5%",
                         zIndex: "100000",
                         "&:hover": {
                             cursor: "pointer",
-                            color: grey,
+                            color: "grey",
                             transition: "all .1s ease-in-out",
                         },
                     }}
@@ -63,14 +63,14 @@ const Navbar = () => {
                 <MenuIcon
                     sx={{
                         fontSize: 50,
-                        color: white,
-                        position: "absolute",
+                        color: "white",
+                        position: "fixed", // Set position to "fixed"
                         top: "5%",
                         left: "5%",
                         zIndex: "100000",
                         "&:hover": {
                             cursor: "pointer",
-                            color: grey,
+                            color: "grey",
                             transition: "all .1s ease-in-out",
                         },
                     }}
@@ -105,7 +105,6 @@ const Navbar = () => {
                             <ListItemButton
                                 sx={{
                                     justifyContent: "center",
-                                   
                                 }}
                                 onClick={() => navigate("/main")}
                             >
@@ -118,7 +117,6 @@ const Navbar = () => {
                             <ListItemButton
                                 sx={{
                                     justifyContent: "center",
-                                   
                                 }}
                                 onClick={() => navigate("/nature")}
                             >
@@ -131,7 +129,6 @@ const Navbar = () => {
                             <ListItemButton
                                 sx={{
                                     justifyContent: "center",
-                                   
                                 }}
                                 onClick={() => navigate("/architecture")}
                             >

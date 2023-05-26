@@ -20,7 +20,7 @@ export const themeSettings = (mode) => {
             fontWeight: "bold",
             color: "white",
             h1: {
-                fontSize: "6rem",
+                fontSize: "5.5rem",
                 fontWeight: 900,
                 "@media (max-width:992px)": {
                     fontSize: "5rem",
@@ -47,9 +47,10 @@ export const themeSettings = (mode) => {
                 fontWeight: 900,
                 "@media (max-width:992px)": {
                     fontSize: "2rem",
+                    fontWeight: 800,
                 },
                 "@media (max-width:600px)": {
-                    fontSize: "1.5rem",
+                    fontSize: "1rem",
                 },
             },
             text:{

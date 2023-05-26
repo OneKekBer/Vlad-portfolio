@@ -4,8 +4,11 @@ import {
     Typography,
     IconButton,
     useMediaQuery,
+    Tooltip,
 } from "@mui/material";
 import React from "react";
+
+import "./mainPage.css";
 
 import FlexCenter from "./../../components/flexCenter";
 import Navbar from "../navbar/navbar.jsx";
@@ -26,15 +29,25 @@ import Nature_Img from "../../assets/img/natue.jpg";
 import Arch1_Img from "../../assets/img/arch1.jpg";
 import Nat2_Img from "../../assets/img/nat2.jpg";
 import Hero_Img from "../../assets/img/DSC_3774.jpg";
+import nat10 from "../../assets/img/nat10.jpg";
+
+import nat8 from "../../assets/img/nat8.jpg";
+import nat9 from "../../assets/img/nat9.jpg";
+
 import Footer from "../footer/footer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination,EffectFade, Navigation } from "swiper";
+import { Autoplay, EffectFade } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
+import SwiperSlideComponent from "../../components/swiperSlideComponent";
+
+import TrackVisibility from "react-on-screen";
+
+import "animate.css";
 
 export const Hero = () => {
     const theme = useTheme();
@@ -107,150 +120,179 @@ const MainPage = () => {
         <Box backgroundColor={black} sx={{}}>
             <Navbar />
             {/*Hero*/}
-            <Swiper
-                sx={{ position: "relative" }}
-                spaceBetween={50}
-                loop
-                slidesPerView={1}
-                effect="fade"
-                autoplay={{
-                    delay: 3500,
-                    
-                }}
-                
-                modules={[Autoplay,EffectFade]}
-            >
-                <SwiperSlide sx={{ width: "100vw", height: "100vh" }}>
-                    <FlexCenter
-                        sx={{
-                            backgroundImage: `url(${Nat2_Img})`,
-                            width: "100vw",
-                            height: "100vh",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundRepeat: "no-repeat",
-                        }}
-                    ></FlexCenter>
-                </SwiperSlide>
-
-                <SwiperSlide sx={{ width: "100vw", height: "100vh" }}>
-                    <FlexCenter
-                        sx={{
-                            backgroundImage: `url(${Arch1_Img})`,
-                            width: "100vw",
-                            height: "100vh",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundRepeat: "no-repeat",
-                        }}
+            <TrackVisibility once>
+                {({ isVisible }) => (
+                    <div
+                        className={
+                            isVisible
+                                ? "animate__animated animate__fadeIn animate__slower"
+                                : ""
+                        }
                     >
-                        {/* <Typography variant="h1" sx={{opacity:0.7}} color="white">
-                    ЙОУ СОБАКИ
-                </Typography> */}
-                    </FlexCenter>
-                </SwiperSlide>
+                        <Swiper
+                            sx={{ position: "relative" }}
+                            spaceBetween={50}
+                            loop
+                            slidesPerView={1}
+                            effect="fade"
+                            autoplay={{
+                                delay: 3000,
+                            }}
+                            modules={[Autoplay, EffectFade]}
+                        >
+                            <SwiperSlide
+                                sx={{ width: "100vw", height: "100vh" }}
+                            >
+                                <SwiperSlideComponent img_url={Nature_Img} />
+                            </SwiperSlide>
+                            <SwiperSlide
+                                sx={{ width: "100vw", height: "100vh" }}
+                            >
+                                <SwiperSlideComponent img_url={nat10} />
+                            </SwiperSlide>
 
-                <SwiperSlide sx={{ width: "100vw", height: "100vh" }}>
-                    <FlexCenter
-                        sx={{
-                            backgroundImage: `url(${Hero_Img})`,
-                            width: "100vw",
-                            height: "100vh",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundRepeat: "no-repeat",
-                        }}
-                    ></FlexCenter>
-                </SwiperSlide>
-                <Typography
-                    variant="h1"
-                    align="center"
-                    sx={{
-                        opacity: 0.7,
-                        position: "absolute",
-                        
-                        textAlign:'center',
-                        left: "30%",
-                        right:'30%',
-                        top: "40%",
+                            <SwiperSlide
+                                sx={{ width: "100vw", height: "100vh" }}
+                            >
+                                <SwiperSlideComponent img_url={Arch1_Img} />
+                            </SwiperSlide>
+                            <SwiperSlide
+                                sx={{ width: "100vw", height: "100vh" }}
+                            >
+                                <SwiperSlideComponent img_url={nat8} />
+                            </SwiperSlide>
+                            <SwiperSlide
+                                sx={{ width: "100vw", height: "100vh" }}
+                            >
+                                <SwiperSlideComponent img_url={Nat2_Img} />
+                            </SwiperSlide>
+                            <SwiperSlide
+                                sx={{ width: "100vw", height: "100vh" }}
+                            >
+                                <SwiperSlideComponent img_url={nat9} />
+                            </SwiperSlide>
 
-                        zIndex: 10,
-                    }}
-                    color="white"
-                >
-                    ЙОУ СОБАКИ
-                </Typography>
-            </Swiper>
+                            {/* <Typography
+                                variant="h1"
+                                align="center"
+                                sx={{
+                                    opacity: 0.7,
+                                    position: "absolute",
+
+                                    textAlign: "center",
+                                    left: "30%",
+                                    right: "30%",
+                                    top: "40%",
+
+                                    zIndex: 10,
+                                }}
+                                color="white"
+                            >
+                                ЙОУ СОБАКИ
+                            </Typography> */}
+                        </Swiper>
+                    </div>
+                )}
+            </TrackVisibility>
 
             {/*about*/}
 
-            <FlexCenter sx={{ height: isNonMobileScreen ? "110vh" : "" }}>
-                <FlexAround
-                    width="100%"
-                    flexDirection="column"
-                    justifyContent="space-around"
-                    gap={10}
-                >
-                    <Typography align="center" mt={10} variant="h1">
-                        Привет, я Влад
-                        <br /> и я проффесиональный
-                        <br /> фотограф
-                    </Typography>
-                    <Typography align="center" variant="text">
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        ipsum lorem
-                        <br /> ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        <br />
-                        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        <br />
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                        ipsum lorem ipsum lorem ipsum lorem ipsum
-                    </Typography>
-                    <FlexComponent
-                        justifyContent="center"
-                        flexDirection={isNonMobileScreen ? "row" : "column"}
-                        gap={1}
+            <TrackVisibility once>
+                <FlexCenter sx={{ height: isNonMobileScreen ? "110vh" : "" }}>
+                    <FlexAround
+                        width="100%"
+                        flexDirection="column"
+                        justifyContent="space-around"
+                        gap={5}
                     >
-                        <IconButton color={white} href="" aria-label="social">
-                            <InstagramIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "70px"
-                                        : "50px",
-                                }}
-                            />
-                        </IconButton>
-                        <IconButton color={white} href="" aria-label="social">
-                            <TelegramIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "70px"
-                                        : "50px",
-                                }}
-                            />
-                        </IconButton>
-                        <IconButton color={white} href="" aria-label="social">
-                            <EmailIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "70px"
-                                        : "50px",
-                                }}
-                            />
-                        </IconButton>
-                        <IconButton color={white} href="" aria-label="social">
-                            <MusicNoteIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "70px"
-                                        : "50px",
-                                }}
-                            />
-                        </IconButton>
-                    </FlexComponent>
-                </FlexAround>
-            </FlexCenter>
+                        <Typography align="center" mt={10} variant="h1">
+                            Привет, я Влад
+                            <br />и я фотограф
+                        </Typography>
+
+                        <Typography
+                            align="center"
+                            padding={
+                                isNonMobileScreen
+                                    ? "0 150px 0 150px"
+                                    : "0 0 0 0"
+                            }
+                            variant="text"
+                        >
+                            Каждая фотография, созданная мной, несет в себе моё
+                            восхищение природой и старой архитектурой. Я
+                            стремлюсь передать эмоции и заставить зрителя
+                            задуматься, раскрывая новые грани красоты и загадки,
+                            скрытые в темных тонах. Мои работы приглашают вас на
+                            увлекательный исследовательский путь, где вы можете
+                            открыть новые миры и ощутить вдохновение, которое
+                            природа и архитектура могут подарить.
+                        </Typography>
+                        <FlexComponent
+                            justifyContent="center"
+                            flexDirection={isNonMobileScreen ? "row" : "column"}
+                            gap={1}
+                        >
+                            <IconButton
+                                color={white}
+                                href=""
+                                aria-label="social"
+                            >
+                                <InstagramIcon
+                                    sx={{
+                                        fontSize: isNonMobileScreen
+                                            ? "70px"
+                                            : "30px",
+                                    }}
+                                />
+                            </IconButton>
+
+                            <IconButton
+                                color={white}
+                                href=""
+                                aria-label="social"
+                            >
+                                <TelegramIcon
+                                    sx={{
+                                        fontSize: isNonMobileScreen
+                                            ? "70px"
+                                            : "30px",
+                                    }}
+                                />
+                            </IconButton>
+                            <Tooltip title="example@gmail.com">
+                                <IconButton
+                                    color={white}
+                                    href=""
+                                    aria-label="social"
+                                >
+                                    <EmailIcon
+                                        sx={{
+                                            fontSize: isNonMobileScreen
+                                                ? "70px"
+                                                : "30px",
+                                        }}
+                                    />
+                                </IconButton>
+                            </Tooltip>
+
+                            <IconButton
+                                color={white}
+                                href=""
+                                aria-label="social"
+                            >
+                                <MusicNoteIcon
+                                    sx={{
+                                        fontSize: isNonMobileScreen
+                                            ? "70px"
+                                            : "30px",
+                                    }}
+                                />
+                            </IconButton>
+                        </FlexComponent>
+                    </FlexAround>
+                </FlexCenter>
+            </TrackVisibility>
 
             {/*portfolio*/}
 
@@ -263,78 +305,93 @@ const MainPage = () => {
                 <PortfolioBlock
                     text="ARCHITECTURE"
                     image={Arch1_Img}
-                    navigateUrl="/nature"
+                    navigateUrl="/architecture"
                 />
                 <PortfolioBlock
                     sx={{ backgroundPosition: "bottom" }}
                     text="AMFITHEATER"
-                    image={Nat2_Img}
-                    navigateUrl="/nature"
+                    image={nat8}
+                    // navigateUrl="/nature"
                 />
                 <PortfolioBlock
                     text="NATURE"
                     image={Nature_Img}
-                    navigateUrl="/nature"
+                    // navigateUrl="/nature"
                 />
             </FlexComponent>
 
             {/*WhyMe*/}
             <FlexCenter sx={{ height: "100vh" }} padding="0 20 0 20">
-                <FlexAround
-                    width="100%"
-                    flexDirection="column"
-                    justifyContent="space-around"
-                    gap={20}
-                >
-                    <Typography align="center" variant="h1">
-                        Почему вы должны
-                        <br /> выбрать меня?
-                    </Typography>
-                    <FlexAround
-                        flexDirection={isNonMobileScreen ? "row" : "column"}
-                        gap={5}
-                    >
-                        <FlexCenter flexDirection="column">
-                            <PaletteIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "90px"
-                                        : "50px",
-                                }}
-                            />
-                            <Typography align="center" variant="h3">
-                                творческий подход
-                            </Typography>
-                        </FlexCenter>
+                <TrackVisibility once>
+                    {({ isVisible }) => (
+                        <FlexAround
+                            width="100%"
+                            flexDirection="column"
+                            justifyContent="space-around"
+                            gap={10}
+                        >
+                            <div
+                                className={
+                                    // isVisible ? "textVisible" : "textNotVisible"
+                                    isVisible
+                                        ? "animate__animated animate__pulse animate__slow"
+                                        : " "
+                                }
+                            >
+                                <Typography align="center" variant="h1">
+                                    Почему вы должны
+                                    <br /> выбрать меня?
+                                </Typography>
+                            </div>
+                            <FlexAround
+                                flexDirection={
+                                    isNonMobileScreen ? "row" : "column"
+                                }
+                                gap={5}
+                            >
+                                <FlexCenter flexDirection="column">
+                                    <PaletteIcon
+                                        sx={{
+                                            fontSize: isNonMobileScreen
+                                                ? "90px"
+                                                : "50px",
+                                        }}
+                                    />
+                                    <Typography align="center" variant="h3">
+                                        творческий подход
+                                    </Typography>
+                                </FlexCenter>
 
-                        <FlexCenter flexDirection="column">
-                            <BorderColorIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "90px"
-                                        : "50px",
-                                }}
-                            />
-                            <Typography align="center" variant="h3">
-                                владение <br />
-                                редакторами фото
-                            </Typography>
-                        </FlexCenter>
+                                <FlexCenter flexDirection="column">
+                                    <BorderColorIcon
+                                        sx={{
+                                            fontSize: isNonMobileScreen
+                                                ? "90px"
+                                                : "50px",
+                                        }}
+                                    />
+                                    <Typography align="center" variant="h3">
+                                        владение <br />
+                                        редакторами фото
+                                    </Typography>
+                                </FlexCenter>
 
-                        <FlexCenter flexDirection="column">
-                            <TipsAndUpdatesIcon
-                                sx={{
-                                    fontSize: isNonMobileScreen
-                                        ? "90px"
-                                        : "50px",
-                                }}
-                            />
-                            <Typography align="center" variant="h3">
-                                большой опыт
-                            </Typography>
-                        </FlexCenter>
-                    </FlexAround>
-                </FlexAround>
+                                <FlexCenter flexDirection="column">
+                                    <TipsAndUpdatesIcon
+                                        sx={{
+                                            fontSize: isNonMobileScreen
+                                                ? "90px"
+                                                : "50px",
+                                        }}
+                                    />
+                                    <Typography align="center" variant="h3">
+                                        большой опыт
+                                    </Typography>
+                                </FlexCenter>
+                            </FlexAround>
+                        </FlexAround>
+                    )}
+                </TrackVisibility>
             </FlexCenter>
             <Footer />
         </Box>

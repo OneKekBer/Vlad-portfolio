@@ -5,9 +5,18 @@ import NaturePage from "./scenes/naturePage/naturePage.jsx";
 import { themeSettings } from "./theme.js";
 import ArchiPage from "./scenes/archiPage/archPage.jsx";
 
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 function App() {
     const theme = createTheme(themeSettings("dark"));
+
+    const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
     
     return (
         <Box className="App">

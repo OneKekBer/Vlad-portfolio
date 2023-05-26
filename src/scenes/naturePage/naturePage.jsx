@@ -21,6 +21,12 @@ import nat8 from "../../assets/img/nat8.jpg";
 import nat9 from "../../assets/img/nat9.jpg";
 import nat10 from "../../assets/img/nat10.jpg";
 import { ImageListItemComponent } from "./../../components/imageListItemComponent.jsx";
+
+import TrackVisibility from "react-on-screen";
+
+import "animate.css";
+import Footer from "../footer/footer.jsx";
+
 export const NaturePage = () => {
     const theme = useTheme();
     const black = theme.palette.primary.black;
@@ -31,19 +37,21 @@ export const NaturePage = () => {
     return (
         <Box>
             <Navbar />
-            <FlexCenter padding={isNonMobileScreen ? 3 : 0}>
-                <ImageList cols={3} gap={20}>
-                    
-                    <ImageListItemComponent
-                        img_url={nat2}
-                        cols={3}
-                        text={"explore nature"}
-                    />
 
-                    <ImageListItemComponent img_url={nat3} cols={2} rows={2} />
+            <FlexCenter padding={isNonMobileScreen ? 3 : 0}>
+                <ImageList cols={3} gap={20} rowHeight='100vh' > 
+                    {/*  */}
+                    <ImageListItemComponent
+                                    img_url={nat2}
+                                    cols={3}
+                                
+                                    text={"explore nature"}
+                                />
+
+                    <ImageListItemComponent img_url={nat3} cols={2} rows={1} />
                     <ImageListItemComponent img_url={nat4} cols={1} rows={1} />
 
-                    <ImageListItemComponent img_url={nat5} cols={1} rows={1} />
+                    <ImageListItemComponent img_url={nat5} cols={3} rows={1} />
                     <ImageListItem cols={3} rows={2}>
                         <Typography
                             align="center"
@@ -66,6 +74,7 @@ export const NaturePage = () => {
                     <ImageListItemComponent img_url={nat10} cols={3} rows={1} />
                 </ImageList>
             </FlexCenter>
+            <Footer/>
         </Box>
     );
 };
