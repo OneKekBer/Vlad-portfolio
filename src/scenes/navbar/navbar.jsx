@@ -133,7 +133,7 @@ const Navbar = () => {
                                     justifyContent: "center",
                                    
                                 }}
-                                onClick={() => navigate("/nature")}
+                                onClick={() => navigate("/architecture")}
                             >
                                 <Typography variant="h1" color="white">
                                     Architecture

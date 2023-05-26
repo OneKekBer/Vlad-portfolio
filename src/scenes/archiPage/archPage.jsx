@@ -11,11 +11,11 @@ import {
 } from "@mui/material";
 import FlexCenter from "../../components/flexCenter";
 
-import nat2 from "../../assets/img/nat2.jpg";
-import nat3 from "../../assets/img/nat3.jpg";
-import nat4 from "../../assets/img/nat4.jpg";
-import nat5 from "../../assets/img/nat5.jpg";
-import nat6 from "../../assets/img/nat6.jpg";
+import arch1 from "../../assets/img/arch1.jpg";
+import arch2 from "../../assets/img/arch2.jpg";
+import arch3 from "../../assets/img/arch3.jpg";
+// import arch4 from "../../assets/img/arch4.jpg";
+// import arch6 from "../../assets/img/arch6.jpg";
 import { ImageListItemComponent } from "./../../components/imageListItemComponent.jsx";
 
 export const ArchiPage = () => {
@@ -28,17 +28,17 @@ export const ArchiPage = () => {
     return (
         <Box>
             <Navbar />
-            <FlexCenter padding={isNonMobileScreen ? 3 : 0}>
-                <ImageList cols={3} gap={20}>
+            <FlexCenter>
+                <ImageList cols={3} rows={2} gap={20}>
                     <ImageListItemComponent
-                        img_url={nat2}
+                        img_url={arch1}
                         cols={3}
-                        text={"explore nature"}
+                        text={"explore architecture"}
                     />
-                    <ImageListItemComponent img_url={nat3} cols={2} rows={2} />
-                    <ImageListItemComponent img_url={nat4} cols={1} rows={1} />
+                    <ImageListItemComponent img_url={arch3} cols={3} rows={2} />
+                    <ImageListItemComponent img_url={arch2} cols={3} rows={5} />
 
-                    <ImageListItemComponent img_url={nat5} cols={1} rows={1} />
+                    
                     <ImageListItem cols={3} rows={2}>
                         <Typography
                             align="center"
@@ -54,8 +54,7 @@ export const ArchiPage = () => {
                         </Typography>
                     </ImageListItem>
 
-                    <ImageListItemComponent img_url={nat6} cols={1} rows={1} />
-                    <ImageListItemComponent img_url={nat2} cols={2} rows={1} />
+                    
                 </ImageList>
             </FlexCenter>
         </Box>

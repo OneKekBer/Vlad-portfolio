@@ -1,4 +1,10 @@
-import { Box, useTheme, Typography, IconButton, useMediaQuery } from "@mui/material";
+import {
+    Box,
+    useTheme,
+    Typography,
+    IconButton,
+    useMediaQuery,
+} from "@mui/material";
 import React from "react";
 
 import FlexCenter from "./../../components/flexCenter";
@@ -8,10 +14,10 @@ import FlexAround from "../../components/flexAround";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EmailIcon from "@mui/icons-material/Email";
-import PaletteIcon from '@mui/icons-material/Palette';
-import BorderColorIcon from '@mui/icons-material/BorderColor';
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import PaletteIcon from "@mui/icons-material/Palette";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 
 import FlexComponent from "./../../components/flexComponent";
 import PortfolioBlock from "../../components/portfolioBlock";
@@ -22,14 +28,19 @@ import Nat2_Img from "../../assets/img/nat2.jpg";
 import Hero_Img from "../../assets/img/DSC_3774.jpg";
 import Footer from "../footer/footer";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination,EffectFade, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import 'swiper/css/effect-fade';
+
 export const Hero = () => {
     const theme = useTheme();
     const black = theme.palette.primary.black;
     const white = theme.palette.primary.white;
     const grey = theme.palette.primary.grey;
-
-    
-
 
     return (
         <FlexCenter
@@ -66,7 +77,7 @@ export const About = () => {
                     lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
                     lorem ipsum
                 </Typography>
-                <FlexAround justifyContent="space-around" >
+                <FlexAround justifyContent="space-around">
                     {/* <IconButton aria-label="social" onClick={h}>
                       
                     </IconButton> */}
@@ -90,31 +101,90 @@ const MainPage = () => {
     const black = theme.palette.primary.black;
     const white = theme.palette.primary.white;
 
-
-    const isNonMobileScreen = useMediaQuery("(min-width:700px)")
+    const isNonMobileScreen = useMediaQuery("(min-width:700px)");
 
     return (
         <Box backgroundColor={black} sx={{}}>
             <Navbar />
             {/*Hero*/}
-            <FlexCenter
-                sx={{
-                    backgroundImage: `url(${Hero_Img})`,
-                    width: "100vw",
-                    height: "100vh",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
+            <Swiper
+                sx={{ position: "relative" }}
+                spaceBetween={50}
+                loop
+                slidesPerView={1}
+                effect="fade"
+                autoplay={{
+                    delay: 3500,
+                    
                 }}
+                
+                modules={[Autoplay,EffectFade]}
             >
-                <Typography variant="h1" sx={{opacity:0.7}} color="white">
+                <SwiperSlide sx={{ width: "100vw", height: "100vh" }}>
+                    <FlexCenter
+                        sx={{
+                            backgroundImage: `url(${Nat2_Img})`,
+                            width: "100vw",
+                            height: "100vh",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    ></FlexCenter>
+                </SwiperSlide>
+
+                <SwiperSlide sx={{ width: "100vw", height: "100vh" }}>
+                    <FlexCenter
+                        sx={{
+                            backgroundImage: `url(${Arch1_Img})`,
+                            width: "100vw",
+                            height: "100vh",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    >
+                        {/* <Typography variant="h1" sx={{opacity:0.7}} color="white">
+                    ЙОУ СОБАКИ
+                </Typography> */}
+                    </FlexCenter>
+                </SwiperSlide>
+
+                <SwiperSlide sx={{ width: "100vw", height: "100vh" }}>
+                    <FlexCenter
+                        sx={{
+                            backgroundImage: `url(${Hero_Img})`,
+                            width: "100vw",
+                            height: "100vh",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    ></FlexCenter>
+                </SwiperSlide>
+                <Typography
+                    variant="h1"
+                    align="center"
+                    sx={{
+                        opacity: 0.7,
+                        position: "absolute",
+                        
+                        textAlign:'center',
+                        left: "30%",
+                        right:'30%',
+                        top: "40%",
+
+                        zIndex: 10,
+                    }}
+                    color="white"
+                >
                     ЙОУ СОБАКИ
                 </Typography>
-            </FlexCenter>
+            </Swiper>
 
             {/*about*/}
 
-            <FlexCenter sx={{ height: isNonMobileScreen ? "110vh" : '' }}>
+            <FlexCenter sx={{ height: isNonMobileScreen ? "110vh" : "" }}>
                 <FlexAround
                     width="100%"
                     flexDirection="column"
@@ -126,7 +196,7 @@ const MainPage = () => {
                         <br /> и я проффесиональный
                         <br /> фотограф
                     </Typography>
-                    <Typography align="center" variant='text'>
+                    <Typography align="center" variant="text">
                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
                         ipsum lorem
                         <br /> ipsum lorem ipsum lorem ipsum lorem ipsum lorem
@@ -137,18 +207,46 @@ const MainPage = () => {
                         lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
                         ipsum lorem ipsum lorem ipsum lorem ipsum
                     </Typography>
-                    <FlexComponent justifyContent="center" flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={1}>
+                    <FlexComponent
+                        justifyContent="center"
+                        flexDirection={isNonMobileScreen ? "row" : "column"}
+                        gap={1}
+                    >
                         <IconButton color={white} href="" aria-label="social">
-                            <InstagramIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }} />
+                            <InstagramIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "70px"
+                                        : "50px",
+                                }}
+                            />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <TelegramIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }}  />
+                            <TelegramIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "70px"
+                                        : "50px",
+                                }}
+                            />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <EmailIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }}  />
+                            <EmailIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "70px"
+                                        : "50px",
+                                }}
+                            />
                         </IconButton>
                         <IconButton color={white} href="" aria-label="social">
-                            <MusicNoteIcon sx={{ fontSize: isNonMobileScreen ? "70px" : '50px', }} />
+                            <MusicNoteIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "70px"
+                                        : "50px",
+                                }}
+                            />
                         </IconButton>
                     </FlexComponent>
                 </FlexAround>
@@ -189,35 +287,56 @@ const MainPage = () => {
                     gap={20}
                 >
                     <Typography align="center" variant="h1">
-                        Почему вы должны<br/> выбрать меня?
+                        Почему вы должны
+                        <br /> выбрать меня?
                     </Typography>
-                    <FlexAround flexDirection={isNonMobileScreen ? 'row' : 'column' } gap={5}>
-                        <FlexCenter flexDirection='column'>
-                            <PaletteIcon sx={{ fontSize: isNonMobileScreen ? "90px" : '50px', }}/>
-                            <Typography align='center' variant="h3" >
+                    <FlexAround
+                        flexDirection={isNonMobileScreen ? "row" : "column"}
+                        gap={5}
+                    >
+                        <FlexCenter flexDirection="column">
+                            <PaletteIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "90px"
+                                        : "50px",
+                                }}
+                            />
+                            <Typography align="center" variant="h3">
                                 творческий подход
                             </Typography>
                         </FlexCenter>
 
-                        <FlexCenter flexDirection='column'>
-                            <BorderColorIcon sx={{ fontSize: isNonMobileScreen ? "90px" : '50px', }}/>
-                            <Typography align='center' variant="h3" >
-                                владение <br/>редакторами фото
+                        <FlexCenter flexDirection="column">
+                            <BorderColorIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "90px"
+                                        : "50px",
+                                }}
+                            />
+                            <Typography align="center" variant="h3">
+                                владение <br />
+                                редакторами фото
                             </Typography>
                         </FlexCenter>
 
-                        <FlexCenter flexDirection='column'>
-                            <TipsAndUpdatesIcon sx={{ fontSize: isNonMobileScreen ? "90px" : '50px', }}/>
-                            <Typography align='center' variant="h3" >
-                            большой опыт
+                        <FlexCenter flexDirection="column">
+                            <TipsAndUpdatesIcon
+                                sx={{
+                                    fontSize: isNonMobileScreen
+                                        ? "90px"
+                                        : "50px",
+                                }}
+                            />
+                            <Typography align="center" variant="h3">
+                                большой опыт
                             </Typography>
                         </FlexCenter>
-
-
                     </FlexAround>
                 </FlexAround>
             </FlexCenter>
-            <Footer/>
+            <Footer />
         </Box>
     );
 };

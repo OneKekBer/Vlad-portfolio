@@ -16,8 +16,11 @@ import nat3 from "../../assets/img/nat3.jpg";
 import nat4 from "../../assets/img/nat4.jpg";
 import nat5 from "../../assets/img/nat5.jpg";
 import nat6 from "../../assets/img/nat6.jpg";
+import nat7 from "../../assets/img/nat7.jpg";
+import nat8 from "../../assets/img/nat8.jpg";
+import nat9 from "../../assets/img/nat9.jpg";
+import nat10 from "../../assets/img/nat10.jpg";
 import { ImageListItemComponent } from "./../../components/imageListItemComponent.jsx";
-
 export const NaturePage = () => {
     const theme = useTheme();
     const black = theme.palette.primary.black;
@@ -30,11 +33,13 @@ export const NaturePage = () => {
             <Navbar />
             <FlexCenter padding={isNonMobileScreen ? 3 : 0}>
                 <ImageList cols={3} gap={20}>
+                    
                     <ImageListItemComponent
                         img_url={nat2}
                         cols={3}
                         text={"explore nature"}
                     />
+
                     <ImageListItemComponent img_url={nat3} cols={2} rows={2} />
                     <ImageListItemComponent img_url={nat4} cols={1} rows={1} />
 
@@ -55,7 +60,10 @@ export const NaturePage = () => {
                     </ImageListItem>
 
                     <ImageListItemComponent img_url={nat6} cols={1} rows={1} />
-                    <ImageListItemComponent img_url={nat2} cols={2} rows={1} />
+                    <ImageListItemComponent img_url={nat7} cols={2} rows={1} />
+                    <ImageListItemComponent img_url={nat8} cols={2} rows={1} />
+                    <ImageListItemComponent img_url={nat9} cols={1} rows={1} />
+                    <ImageListItemComponent img_url={nat10} cols={3} rows={1} />
                 </ImageList>
             </FlexCenter>
         </Box>
