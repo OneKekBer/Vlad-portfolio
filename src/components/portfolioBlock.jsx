@@ -1,33 +1,37 @@
-    import { useNavigate } from "react-router-dom";
-    import FlexCenter from "./flexCenter";
-    import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import FlexCenter from "./flexCenter";
+import { Typography } from "@mui/material";
 
-    import TrackVisibility from "react-on-screen";
-    import './portfolioBlockComponent.css'
-    import "animate.css";
+import TrackVisibility from "react-on-screen";
+import "./portfolioBlockComponent.css";
+import "animate.css";
 
-    // const PortfolioBlock = styled(Box)({
-    //     display:'flex',
-    //     alignItems:'center',
-    //     justifyContent:'center',
+// const PortfolioBlock = styled(Box)({
+//     display:'flex',
+//     alignItems:'center',
+//     justifyContent:'center',
 
-    //     width:'100%',
-    //     height:'20%',
+//     width:'100%',
+//     height:'20%',
 
-    export const PortfolioBlock = ({ image, text, navigateUrl }) => {
-        const navigate = useNavigate();
-        return (
-            <TrackVisibility once>
-                {({ isVisible }) => 
-                    <div className={isVisible ?'PortfolioIsVisible' : 'PortfolioIsNotVisible'}>
-
+export const PortfolioBlock = ({ image, text, navigateUrl }) => {
+    const navigate = useNavigate();
+    return (
+        <TrackVisibility once>
+            {({ isVisible }) => (
+                <div
+                    className={
+                        isVisible
+                            ? "PortfolioIsVisible"
+                            : "PortfolioIsNotVisible"
+                    }
+                >
                     <FlexCenter
-                        
                         onClick={() => navigate(navigateUrl)}
                         sx={{
                             backgroundImage: `url(${image})`,
                             width: "100%",
-                            height: "25%",
+                            height: "50vh",
                             overflow: "hidden",
 
                             backgroundSize: "cover",
@@ -48,10 +52,10 @@
                             {text}
                         </Typography>
                     </FlexCenter>
-                    </div>
-                }
-            </TrackVisibility>
-        );
-    };
+                </div>
+            )}
+        </TrackVisibility>
+    );
+};
 
-    export default PortfolioBlock;
+export default PortfolioBlock;

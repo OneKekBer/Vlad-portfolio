@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar from "./../navbar/navbar.jsx";
 
-import "./archPage.css";
-
 import {
     Box,
     useTheme,
@@ -13,13 +11,13 @@ import {
 } from "@mui/material";
 import FlexCenter from "../../components/flexCenter";
 
-import arch1 from "../../assets/img/arch1.jpg";
-import arch2 from "../../assets/img/arch2.jpg";
-import arch3 from "../../assets/img/arch3.jpg";
-import arch4 from "../../assets/img/arch4.jpg";
-import arch5 from "../../assets/img/arch5.jpg";
-import arch6 from "../../assets/img/arch6.jpg";
-import arch7 from "../../assets/img/arch7.jpg";
+import wat1 from "../../assets/img/wat1.jpg";
+import wat2 from "../../assets/img/wat2.jpg";
+import wat3 from "../../assets/img/wat3.jpg";
+import wat4 from "../../assets/img/wat4.jpg";
+import wat5 from "../../assets/img/wat5.jpg";
+import wat6 from "../../assets/img/wat6.jpg";
+
 import { ImageListItemComponent } from "./../../components/imageListItemComponent.jsx";
 
 import TrackVisibility from "react-on-screen";
@@ -27,7 +25,7 @@ import TrackVisibility from "react-on-screen";
 import "animate.css";
 import Footer from "../footer/footer.jsx";
 
-export const ArchiPage = () => {
+export const LagoonPage = () => {
     const theme = useTheme();
     const black = theme.palette.primary.black;
     const white = theme.palette.primary.white;
@@ -38,16 +36,16 @@ export const ArchiPage = () => {
         <Box>
             <Navbar />
             <FlexCenter>
-                <ImageList cols={3} rows={2} gap={20}>
+                <ImageList cols={3} rows={2} gap={30}>
                     <ImageListItemComponent
-                        img_url={arch1}
+                        img_url={wat2}
                         cols={3}
-                        text={"explore architecture"}
+                        text={"LAGOON"}
                     />
-                    <ImageListItemComponent img_url={arch3} cols={3} rows={2} />
-                    <ImageListItemComponent img_url={arch2} cols={3} rows={5} />
+                    <ImageListItemComponent img_url={wat1} cols={2} rows={5} />
+                    <ImageListItemComponent img_url={wat3} cols={1} rows={5} />
 
-                    <ImageListItem cols={3} rows={2}>
+                    {/* <ImageListItem cols={3} rows={2}>
                         <TrackVisibility once>
                             {({ isVisible }) => (
                                 <div
@@ -75,12 +73,12 @@ export const ArchiPage = () => {
                                 </div>
                             )}
                         </TrackVisibility>
-                    </ImageListItem>
+                    </ImageListItem> */}
 
-                    <ImageListItemComponent img_url={arch6} cols={2} rows={5} />
+                    <ImageListItemComponent img_url={wat6} cols={2} rows={5} />
 
-                    <ImageListItemComponent img_url={arch4} cols={1} rows={5} />
-                    <ImageListItemComponent img_url={arch7} cols={3} rows={5} />
+                    <ImageListItemComponent img_url={wat5} cols={1} rows={5} />
+                    <ImageListItemComponent img_url={wat4} cols={3} rows={5} />
                 </ImageList>
             </FlexCenter>
             <Footer />
@@ -88,4 +86,4 @@ export const ArchiPage = () => {
     );
 };
 
-export default ArchiPage;
+export default LagoonPage;

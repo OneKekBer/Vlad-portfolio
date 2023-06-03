@@ -235,8 +235,9 @@ const MainPage = () => {
                         >
                             <IconButton
                                 color={white}
-                                href=""
+                                href="https://instagram.com/exxd.ed?igshid=OGQ5ZDc2ODk2ZA=="
                                 aria-label="social"
+                                target="_blank"
                             >
                                 <InstagramIcon
                                     sx={{
@@ -249,8 +250,9 @@ const MainPage = () => {
 
                             <IconButton
                                 color={white}
-                                href=""
+                                href="@jxxxxeddd"
                                 aria-label="social"
+                                target="_blank"
                             >
                                 <TelegramIcon
                                     sx={{
@@ -260,11 +262,12 @@ const MainPage = () => {
                                     }}
                                 />
                             </IconButton>
-                            <Tooltip title="example@gmail.com">
+                            <Tooltip title="hbtour12@gmail.com">
                                 <IconButton
                                     color={white}
-                                    href=""
+                                    href="mailto:hbtour12@gmail.com"
                                     aria-label="social"
+                                    target="_blank"
                                 >
                                     <EmailIcon
                                         sx={{
@@ -278,8 +281,9 @@ const MainPage = () => {
 
                             <IconButton
                                 color={white}
-                                href=""
+                                href="https://www.tiktok.com/@somejunkphotos?_t=8ckE7uAuPnZ&_r=1"
                                 aria-label="social"
+                                target="_blank"
                             >
                                 <MusicNoteIcon
                                     sx={{
@@ -309,15 +313,15 @@ const MainPage = () => {
                 />
                 <PortfolioBlock
                     sx={{ backgroundPosition: "bottom" }}
-                    text="AMFITHEATER"
+                    text="LAGOON"
                     image={nat8}
-                    // navigateUrl="/nature"
+                    navigateUrl="/lagoon"
                 />
-                <PortfolioBlock
+                {/* <PortfolioBlock
                     text="NATURE"
                     image={Nature_Img}
                     // navigateUrl="/nature"
-                />
+                /> */}
             </FlexComponent>
 
             {/*WhyMe*/}

@@ -137,6 +137,18 @@ const Navbar = () => {
                                 </Typography>
                             </ListItemButton>
                         </ListItem>
+                        <ListItem>
+                            <ListItemButton
+                                sx={{
+                                    justifyContent: "center",
+                                }}
+                                onClick={() => navigate("/lagoon")}
+                            >
+                                <Typography variant="h1" color="white">
+                                    Lagoon
+                                </Typography>
+                            </ListItemButton>
+                        </ListItem>
                     </List>
                 </FlexCenter>
             </Drawer>
